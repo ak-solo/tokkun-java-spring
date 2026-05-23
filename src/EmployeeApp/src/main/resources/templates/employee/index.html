@@ -36,6 +36,7 @@
                 <td>
                     <a th:href="@{/employees/{id}(id=${employee.id})}">詳細</a>
                     <a th:href="@{/employees/{id}/edit(id=${employee.id})}">編集</a>
+                    <a th:href="@{/employees/{id}/delete(id=${employee.id})}" class="text-danger">削除</a>
                 </td>
             </tr>
         </tbody>

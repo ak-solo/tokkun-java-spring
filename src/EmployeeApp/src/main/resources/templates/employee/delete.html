@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/default}">
+<head>
+    <title>社員削除</title>
+</head>
+<body>
+<div layout:fragment="content">
+    <h1>社員削除</h1>
+
+    <p>以下の社員を削除してよいですか？</p>
+
+    <dl class="row">
+        <dt class="col-sm-2">ID</dt>
+        <dd class="col-sm-10" th:text="${employee.id}"></dd>
+
+        <dt class="col-sm-2">氏名</dt>
+        <dd class="col-sm-10" th:text="${employee.name}"></dd>
+    </dl>
+
+    <form th:action="@{/employees/{id}/delete(id=${employee.id})}" method="post">
+        <button type="submit" class="btn btn-danger">削除する</button>
+        <a th:href="@{/employees/{id}(id=${employee.id})}" class="btn btn-secondary">キャンセル</a>
+    </form>
+</div>
+</body>
+</html>
