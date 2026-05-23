@@ -15,8 +15,16 @@
             <input type="text" name="name" class="form-control" />
         </div>
         <div class="mb-3">
+            <label class="form-label">部署 ID</label>
+            <input type="number" name="deptId" class="form-control" />
+        </div>
+        <div class="mb-3">
             <label class="form-label">給与</label>
             <input type="number" name="salary" class="form-control" />
+        </div>
+        <div class="mb-3">
+            <label class="form-label">入社日</label>
+            <input type="date" name="hireDate" class="form-control" />
         </div>
         <button type="submit" class="btn btn-primary">登録</button>
         <a th:href="@{/employees}" class="btn btn-secondary">キャンセル</a>

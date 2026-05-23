@@ -35,6 +35,7 @@
                 <td th:text="${employee.managerId}"></td>
                 <td>
                     <a th:href="@{/employees/{id}(id=${employee.id})}">詳細</a>
+                    <a th:href="@{/employees/{id}/edit(id=${employee.id})}">編集</a>
                 </td>
             </tr>
         </tbody>

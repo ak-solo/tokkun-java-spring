@@ -29,6 +29,7 @@
         <dd class="col-sm-10" th:text="${employee.managerId} ?: '（なし）'"></dd>
     </dl>
 
+    <a th:href="@{/employees/{id}/edit(id=${employee.id})}" class="btn btn-secondary">編集</a>
     <a th:href="@{/employees}" class="btn btn-link">一覧に戻る</a>
 </div>
 </body>
