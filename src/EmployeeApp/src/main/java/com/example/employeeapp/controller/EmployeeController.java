@@ -26,6 +26,12 @@ public class EmployeeController {
         return "employee/index";
     }
 
+    @GetMapping("/new")
+    public String createForm(Model model) {
+        model.addAttribute("employee", new Employee());
+        return "employee/create";
+    }
+
     @GetMapping("/{id}")
     public String detail(@PathVariable int id, Model model) {
         Employee employee = employeeRepository.findById(id);

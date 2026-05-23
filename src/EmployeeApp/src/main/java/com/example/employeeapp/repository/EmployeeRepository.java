@@ -26,7 +26,10 @@ public class EmployeeRepository {
 
     public Employee findById(int id) {
         return jdbcTemplate.queryForObject(
-            "SELECT * FROM employees WHERE id = :id",
+            "SELECT e.*, d.name AS dept_name" +
+            " FROM employees e" +
+            " LEFT JOIN departments d ON e.dept_id = d.id" +
+            " WHERE e.id = :id",
             Map.of("id", id),
             new BeanPropertyRowMapper<>(Employee.class)
         );
