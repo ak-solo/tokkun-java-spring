@@ -52,14 +52,14 @@
 
 ## Phase 4: ch01「一覧表示」→ `ch02-start` タグ
 
-- [ ] `docs/chapter01.md` 作成（基礎知識 + 練習問題 4〜6 問）
+- [x] `docs/chapter01.md` 作成（基礎知識 + 練習問題 4〜6 問）
   - 基礎：Controller → JdbcTemplate → View のデータの流れを図で説明
   - 問題例：一覧に「給与」カラムを追加 / ソート順を入社日の新しい順に変更 / 一覧に行数カウントを表示 / 部署 ID を追加表示
-- [ ] ch01 解答コードを実装（ch02 の起点を作る）
+- [x] ch01 解答コードを実装（ch02 の起点を作る）
   - 一覧に全カラム表示・入社日降順ソート・詳細ページへのリンク付き
   - `EmployeeController` に `detail` アクション追加（`SELECT * FROM employees WHERE id = :id`）
   - `templates/employee/detail.html` 作成（id と name だけ表示する最小の詳細画面）
-- [ ] `ch02-start` タグ付け
+- [x] `ch02-start` タグ付け
 
 ---
 
