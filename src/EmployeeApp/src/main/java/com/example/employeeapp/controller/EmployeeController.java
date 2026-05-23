@@ -25,10 +25,18 @@ public class EmployeeController {
     }
 
     @GetMapping
-    public String index(@RequestParam(defaultValue = "") String keyword, Model model) {
-        List<Employee> employees = employeeRepository.findAll();
+    public String index(
+            @RequestParam(defaultValue = "") String keyword,
+            @RequestParam(required = false) Integer deptId,
+            @RequestParam(defaultValue = "hire_date") String sortBy,
+            @RequestParam(defaultValue = "desc") String sortDir,
+            Model model) {
+        List<Employee> employees = employeeRepository.findAll(keyword, deptId, sortBy, sortDir);
         model.addAttribute("employees", employees);
         model.addAttribute("keyword", keyword);
+        model.addAttribute("deptId", deptId);
+        model.addAttribute("sortBy", sortBy);
+        model.addAttribute("sortDir", sortDir);
         return "employee/index";
     }
 

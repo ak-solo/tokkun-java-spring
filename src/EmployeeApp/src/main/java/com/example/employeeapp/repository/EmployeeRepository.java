@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 @Repository
 public class EmployeeRepository {
@@ -19,12 +20,28 @@ public class EmployeeRepository {
         this.jdbcTemplate = jdbcTemplate;
     }
 
-    public List<Employee> findAll() {
-        return jdbcTemplate.query(
-            "SELECT id, name, dept_id, salary, hire_date, manager_id FROM employees ORDER BY hire_date DESC",
-            Map.of(),
-            new BeanPropertyRowMapper<>(Employee.class)
+    public List<Employee> findAll(String keyword, Integer deptId, String sortBy, String sortDir) {
+        Set<String> sortableColumns = Set.of("name", "salary", "hire_date");
+        String column    = sortableColumns.contains(sortBy) ? sortBy : "hire_date";
+        String direction = "asc".equals(sortDir) ? "ASC" : "DESC";
+
+        StringBuilder sql = new StringBuilder(
+            "SELECT id, name, dept_id, salary, hire_date, manager_id FROM employees WHERE 1=1"
         );
+        MapSqlParameterSource params = new MapSqlParameterSource();
+
+        if (keyword != null && !keyword.isBlank()) {
+            sql.append(" AND name LIKE :keyword");
+            params.addValue("keyword", "%" + keyword + "%");
+        }
+        if (deptId != null) {
+            sql.append(" AND dept_id = :deptId");
+            params.addValue("deptId", deptId);
+        }
+
+        sql.append(" ORDER BY ").append(column).append(" ").append(direction);
+
+        return jdbcTemplate.query(sql.toString(), params, new BeanPropertyRowMapper<>(Employee.class));
     }
 
     public int save(Employee employee) {
