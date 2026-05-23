@@ -25,15 +25,15 @@
 学習者が触らないファイルを完成させ、ch01 の練習問題が解ける最小の起点を作る。
 学習者が触るのは `controller/` `model/` `templates/` のみ。
 
-- [ ] `src/EmployeeApp/` プロジェクト作成（Spring Initializr で Spring Web・Thymeleaf・Spring JDBC・PostgreSQL Driver を追加）
-- [ ] `build.gradle` 整備（依存関係・Gradle Wrapper 確認）
-- [ ] `application.properties` 整備（PostgreSQL 接続設定・Thymeleaf 設定）
-- [ ] `templates/layout/default.html` 作成（Thymeleaf Layout Dialect + Bootstrap 5・ナビゲーション）
-- [ ] `model/Employee.java` 作成（全カラム対応のフィールド + getter/setter）
-- [ ] `model/Department.java` 作成
-- [ ] `repository/EmployeeRepository.java` 作成（JdbcTemplate を使った `findAll` の最小実装）
-- [ ] `controller/EmployeeController.java` の `index` アクション実装（`SELECT id, name FROM employees ORDER BY id`）
-- [ ] `templates/employee/index.html` 作成（id と name だけを表示する最小の一覧）
+- [x] `src/EmployeeApp/` プロジェクト作成（Spring Initializr で Spring Web・Thymeleaf・Spring JDBC・PostgreSQL Driver を追加）
+- [x] `build.gradle` 整備（依存関係・Gradle Wrapper 確認）
+- [x] `application.properties` 整備（PostgreSQL 接続設定・Thymeleaf 設定）
+- [x] `templates/layout/default.html` 作成（Thymeleaf Layout Dialect + Bootstrap 5・ナビゲーション）
+- [x] `model/Employee.java` 作成（全カラム対応のフィールド + getter/setter）
+- [x] `model/Department.java` 作成
+- [x] `repository/EmployeeRepository.java` 作成（JdbcTemplate を使った `findAll` の最小実装）
+- [x] `controller/EmployeeController.java` の `index` アクション実装（`SELECT id, name FROM employees ORDER BY id`）
+- [x] `templates/employee/index.html` 作成（id と name だけを表示する最小の一覧）
 - [ ] 動作確認（`./gradlew bootRun` で社員一覧が表示されること）
 - [ ] `ch01-start` タグ付け
 
