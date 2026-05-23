@@ -1,12 +1,14 @@
 package com.example.employeeapp.model;
 
 import java.time.LocalDate;
+import org.springframework.format.annotation.DateTimeFormat;
 
 public class Employee {
     private int id;
     private String name;
     private Integer deptId;
     private Integer salary;
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     private LocalDate hireDate;
     private Integer managerId;
     private String deptName;

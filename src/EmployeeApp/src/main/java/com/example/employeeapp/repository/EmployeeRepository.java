@@ -2,7 +2,10 @@ package com.example.employeeapp.repository;
 
 import com.example.employeeapp.model.Employee;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
+import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
+import org.springframework.jdbc.support.GeneratedKeyHolder;
+import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -22,6 +25,23 @@ public class EmployeeRepository {
             Map.of(),
             new BeanPropertyRowMapper<>(Employee.class)
         );
+    }
+
+    public int save(Employee employee) {
+        KeyHolder keyHolder = new GeneratedKeyHolder();
+        MapSqlParameterSource params = new MapSqlParameterSource()
+            .addValue("name",     employee.getName())
+            .addValue("deptId",   employee.getDeptId())
+            .addValue("salary",   employee.getSalary())
+            .addValue("hireDate", employee.getHireDate());
+        jdbcTemplate.update(
+            "INSERT INTO employees (name, dept_id, salary, hire_date)" +
+            " VALUES (:name, :deptId, :salary, :hireDate)",
+            params,
+            keyHolder,
+            new String[]{"id"}
+        );
+        return keyHolder.getKey().intValue();
     }
 
     public Employee findById(int id) {
