@@ -149,9 +149,9 @@
 
 ## Phase 12: 仕上げ
 
-- [ ] `.claude/rules/chapter-docs.md` 作成（ドキュメント執筆・練習問題設計ルール）
-- [ ] `.claude/rules/coding-conventions.md` 作成（コーディング規約・スターターコード方針）
-- [ ] `.claude/rules/git-commit.md` 作成（Git コミット方針）
-- [ ] 全ドキュメントの通し読み（表記ゆれ・リンク切れ・章間の矛盾を修正）
-- [ ] 各 `chXX-start` タグで `./gradlew bootRun` が通ることを確認
-- [ ] `README.md` 作成（教材の概要・対象者・前提知識・各章へのリンク・学習の進め方）
+- [x] `.claude/rules/chapter-docs.md` 作成（ドキュメント執筆・練習問題設計ルール）
+- [x] `.claude/rules/coding-conventions.md` 作成（コーディング規約・スターターコード方針）
+- [x] `.claude/rules/git-commit.md` 作成（Git コミット方針）
+- [x] 全ドキュメントの通し読み（表記ゆれ・リンク切れ・章間の矛盾を修正）
+- [x] 各 `chXX-start` タグで `./gradlew bootRun` が通ることを確認
+- [x] `README.md` 作成（教材の概要・対象者・前提知識・各章へのリンク・学習の進め方）
