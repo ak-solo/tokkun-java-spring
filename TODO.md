@@ -15,8 +15,8 @@
 
 ## Phase 1: DB レイヤー
 
-- [ ] `db/00_schema.sql` 作成（employees / departments / projects / employee_projects の CREATE TABLE）
-- [ ] `db/01_seed.sql` 作成（tokkun-sql と同一のシードデータ）
+- [x] `db/00_schema.sql` 作成（employees / departments / projects / employee_projects の CREATE TABLE）
+- [x] `db/01_seed.sql` 作成（tokkun-sql と同一のシードデータ）
 
 ---
 
