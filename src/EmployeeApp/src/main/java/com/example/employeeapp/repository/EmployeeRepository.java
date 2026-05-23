@@ -44,6 +44,21 @@ public class EmployeeRepository {
         return keyHolder.getKey().intValue();
     }
 
+    public void update(Employee employee) {
+        MapSqlParameterSource params = new MapSqlParameterSource()
+            .addValue("name",     employee.getName())
+            .addValue("deptId",   employee.getDeptId())
+            .addValue("salary",   employee.getSalary())
+            .addValue("hireDate", employee.getHireDate())
+            .addValue("id",       employee.getId());
+        jdbcTemplate.update(
+            "UPDATE employees" +
+            " SET name = :name, dept_id = :deptId, salary = :salary, hire_date = :hireDate" +
+            " WHERE id = :id",
+            params
+        );
+    }
+
     public Employee findById(int id) {
         return jdbcTemplate.queryForObject(
             "SELECT e.*, d.name AS dept_name" +

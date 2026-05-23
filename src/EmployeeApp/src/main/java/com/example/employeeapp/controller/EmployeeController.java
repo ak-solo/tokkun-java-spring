@@ -4,6 +4,8 @@ import com.example.employeeapp.model.Employee;
 import com.example.employeeapp.repository.EmployeeRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import jakarta.validation.Valid;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -52,5 +54,24 @@ public class EmployeeController {
         Employee employee = employeeRepository.findById(id);
         model.addAttribute("employee", employee);
         return "employee/edit";
+    }
+
+    @PostMapping("/{id}/edit")
+    public String edit(
+            @PathVariable int id,
+            @Valid @ModelAttribute Employee employee,
+            BindingResult result) {
+        if (result.hasErrors()) {
+            return "employee/edit";
+        }
+        employeeRepository.update(employee);
+        return "redirect:/employees/" + id;
+    }
+
+    @GetMapping("/{id}/delete")
+    public String deleteConfirm(@PathVariable int id, Model model) {
+        Employee employee = employeeRepository.findById(id);
+        model.addAttribute("employee", employee);
+        return "employee/delete";
     }
 }
