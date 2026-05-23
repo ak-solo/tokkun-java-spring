@@ -18,8 +18,16 @@ public class EmployeeRepository {
 
     public List<Employee> findAll() {
         return jdbcTemplate.query(
-            "SELECT id, name FROM employees ORDER BY id",
+            "SELECT id, name, dept_id, salary, hire_date, manager_id FROM employees ORDER BY hire_date DESC",
             Map.of(),
+            new BeanPropertyRowMapper<>(Employee.class)
+        );
+    }
+
+    public Employee findById(int id) {
+        return jdbcTemplate.queryForObject(
+            "SELECT * FROM employees WHERE id = :id",
+            Map.of("id", id),
             new BeanPropertyRowMapper<>(Employee.class)
         );
     }
