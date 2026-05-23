@@ -12,9 +12,11 @@
     <a th:href="@{/employees/new}" class="btn btn-primary mb-3">新規登録</a>
 
     <form method="get" class="mb-3">
-        <div class="d-flex gap-2" style="max-width: 500px;">
+        <div class="d-flex gap-2" style="max-width: 600px;">
             <input type="text" name="keyword" th:value="${keyword}"
                    class="form-control" placeholder="氏名で検索..." />
+            <input type="number" name="deptId" th:value="${deptId}"
+                   class="form-control" style="max-width: 100px;" placeholder="部署ID" />
             <button type="submit" class="btn btn-outline-secondary">検索</button>
         </div>
     </form>
@@ -25,10 +27,19 @@
         <thead>
             <tr>
                 <th>ID</th>
-                <th>氏名</th>
+                <th>
+                    <a th:href="@{/employees(keyword=${keyword},deptId=${deptId},sortBy='name',
+                               sortDir=${sortBy == 'name' and sortDir == 'asc' ? 'desc' : 'asc'})}">氏名</a>
+                </th>
                 <th>部署 ID</th>
-                <th>給与</th>
-                <th>入社日</th>
+                <th>
+                    <a th:href="@{/employees(keyword=${keyword},deptId=${deptId},sortBy='salary',
+                               sortDir=${sortBy == 'salary' and sortDir == 'asc' ? 'desc' : 'asc'})}">給与</a>
+                </th>
+                <th>
+                    <a th:href="@{/employees(keyword=${keyword},deptId=${deptId},sortBy='hire_date',
+                               sortDir=${sortBy == 'hire_date' and sortDir == 'asc' ? 'desc' : 'asc'})}">入社日</a>
+                </th>
                 <th>上司 ID</th>
                 <th></th>
             </tr>
