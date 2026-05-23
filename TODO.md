@@ -106,13 +106,13 @@
 
 ## Phase 8: ch05「削除」→ `ch06-start` タグ
 
-- [ ] `docs/chapter05.md` 作成（基礎知識 + 練習問題 4〜6 問）
+- [x] `docs/chapter05.md` 作成（基礎知識 + 練習問題 4〜6 問）
   - 基礎：DELETE の実装・削除確認を挟む理由（GET で削除しない理由）
   - 問題例：削除確認メッセージに社員名を表示 / DELETE 文を実装 / 削除後のリダイレクト先を変更 / 一覧に「削除」ボタンを追加
-- [ ] ch05 解答コードを実装（ch06 の起点を作る）
+- [x] ch05 解答コードを実装（ch06 の起点を作る）
   - `EmployeeController` に `delete`（POST）実装（DELETE + リダイレクト）
   - `EmployeeController.index` に `keyword` クエリパラメータ追加（空の検索フォーム表示のみ・絞り込みはまだ動かない）
-- [ ] `ch06-start` タグ付け
+- [x] `ch06-start` タグ付け
 
 ---
 
