@@ -78,15 +78,15 @@
 
 ## Phase 6: ch03「新規登録」→ `ch04-start` タグ
 
-- [ ] `docs/chapter03.md` 作成（基礎知識 + 練習問題 4〜6 問）
+- [x] `docs/chapter03.md` 作成（基礎知識 + 練習問題 4〜6 問）
   - 基礎：GET / POST の違い・`<form>` タグ・PRG パターン（Post-Redirect-Get）
   - JdbcTemplate での INSERT・`KeyHolder` で採番した ID を取得する方法
   - 問題例：フォームに「入社日」項目を追加 / INSERT 文を実装する / 登録後に詳細画面へリダイレクト
-- [ ] ch03 解答コードを実装（ch04 の起点を作る）
+- [x] ch03 解答コードを実装（ch04 の起点を作る）
   - `EmployeeController` に `create`（POST）実装（INSERT + リダイレクト）
   - `EmployeeController` に `editForm`（GET）アクション追加（既存データをフォームに表示）
   - `templates/employee/edit.html` 作成（create と同構造の編集フォーム骨格）
-- [ ] `ch04-start` タグ付け
+- [x] `ch04-start` タグ付け
 
 ---
 
