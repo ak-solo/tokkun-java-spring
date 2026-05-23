@@ -127,7 +127,7 @@ src/EmployeeApp/
             ├── layout/
             │   └── default.html          ← 共通レイアウト（触らない）
             └── employee/
-                └── index.html            ← ★ 学習者が触う
+                └── index.html            ← ★ 学習者が触る
 ```
 
 ### 学習者が触るファイル
