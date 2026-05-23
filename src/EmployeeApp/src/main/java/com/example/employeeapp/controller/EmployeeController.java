@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -24,9 +25,10 @@ public class EmployeeController {
     }
 
     @GetMapping
-    public String index(Model model) {
+    public String index(@RequestParam(defaultValue = "") String keyword, Model model) {
         List<Employee> employees = employeeRepository.findAll();
         model.addAttribute("employees", employees);
+        model.addAttribute("keyword", keyword);
         return "employee/index";
     }
 
@@ -73,5 +75,11 @@ public class EmployeeController {
         Employee employee = employeeRepository.findById(id);
         model.addAttribute("employee", employee);
         return "employee/delete";
+    }
+
+    @PostMapping("/{id}/delete")
+    public String delete(@PathVariable int id) {
+        employeeRepository.delete(id);
+        return "redirect:/employees";
     }
 }

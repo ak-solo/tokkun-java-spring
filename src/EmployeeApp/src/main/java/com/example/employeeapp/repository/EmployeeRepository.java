@@ -59,6 +59,13 @@ public class EmployeeRepository {
         );
     }
 
+    public void delete(int id) {
+        jdbcTemplate.update(
+            "DELETE FROM employees WHERE id = :id",
+            Map.of("id", id)
+        );
+    }
+
     public Employee findById(int id) {
         return jdbcTemplate.queryForObject(
             "SELECT e.*, d.name AS dept_name" +
