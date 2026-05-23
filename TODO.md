@@ -34,8 +34,8 @@
 - [x] `repository/EmployeeRepository.java` 作成（JdbcTemplate を使った `findAll` の最小実装）
 - [x] `controller/EmployeeController.java` の `index` アクション実装（`SELECT id, name FROM employees ORDER BY id`）
 - [x] `templates/employee/index.html` 作成（id と name だけを表示する最小の一覧）
-- [ ] 動作確認（`./gradlew bootRun` で社員一覧が表示されること）
-- [ ] `ch01-start` タグ付け
+- [x] 動作確認（`./gradlew bootRun` で社員一覧が表示されること）
+- [x] `ch01-start` タグ付け
 
 ---
 
