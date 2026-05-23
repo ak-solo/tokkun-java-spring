@@ -11,6 +11,14 @@
 
     <a th:href="@{/employees/new}" class="btn btn-primary mb-3">新規登録</a>
 
+    <form method="get" class="mb-3">
+        <div class="d-flex gap-2" style="max-width: 500px;">
+            <input type="text" name="keyword" th:value="${keyword}"
+                   class="form-control" placeholder="氏名で検索..." />
+            <button type="submit" class="btn btn-outline-secondary">検索</button>
+        </div>
+    </form>
+
     <p class="text-muted" th:text="${employees.size()} + ' 件'"></p>
 
     <table class="table">
