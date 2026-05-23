@@ -41,7 +41,7 @@
 
 ## Phase 3: ch00 ドキュメント（演習なし・読み物のみ）
 
-- [ ] `docs/chapter00.md` 作成
+- [x] `docs/chapter00.md` 作成
   - Web アプリケーションとは（ブラウザ ↔ サーバーの通信の流れ図）
   - HTTP リクエスト・レスポンスの基本（GET の概念）
   - MVC パターンの役割（Model / View / Controller を図で説明）
