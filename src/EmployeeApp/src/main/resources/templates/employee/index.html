@@ -9,6 +9,8 @@
 <div layout:fragment="content">
     <h1>社員一覧</h1>
 
+    <a th:href="@{/employees/new}" class="btn btn-primary mb-3">新規登録</a>
+
     <p class="text-muted" th:text="${employees.size()} + ' 件'"></p>
 
     <table class="table">

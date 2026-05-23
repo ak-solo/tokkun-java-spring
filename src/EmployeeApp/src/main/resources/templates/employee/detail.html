@@ -15,6 +15,18 @@
 
         <dt class="col-sm-2">氏名</dt>
         <dd class="col-sm-10" th:text="${employee.name}"></dd>
+
+        <dt class="col-sm-2">部署名</dt>
+        <dd class="col-sm-10" th:text="${employee.deptName} ?: '（未所属）'"></dd>
+
+        <dt class="col-sm-2">給与</dt>
+        <dd class="col-sm-10" th:text="${employee.salary}"></dd>
+
+        <dt class="col-sm-2">入社日</dt>
+        <dd class="col-sm-10" th:text="${employee.hireDate}"></dd>
+
+        <dt class="col-sm-2">上司 ID</dt>
+        <dd class="col-sm-10" th:text="${employee.managerId} ?: '（なし）'"></dd>
     </dl>
 
     <a th:href="@{/employees}" class="btn btn-link">一覧に戻る</a>
