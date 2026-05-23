@@ -1,0 +1,39 @@
+{
+  "name": "tokkun-java-spring",
+  "dockerComposeFile": "docker-compose.yml",
+  "service": "app",
+  "workspaceFolder": "/workspaces/tokkun-java-spring",
+  "forwardPorts": [8080, 5432],
+  "portsAttributes": {
+    "8080": {
+      "label": "Spring Boot",
+      "onAutoForward": "openBrowser"
+    },
+    "5432": {
+      "label": "PostgreSQL",
+      "onAutoForward": "silent"
+    }
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "redhat.java",
+        "vscjava.vscode-java-debug",
+        "vscjava.vscode-java-test",
+        "vscjava.vscode-gradle",
+        "vmware.vscode-spring-boot"
+      ],
+      "settings": {
+        "editor.formatOnSave": true,
+        "java.configuration.updateBuildConfiguration": "automatic"
+      }
+    }
+  },
+  "remoteEnv": {
+    "SPRING_DATASOURCE_URL": "jdbc:postgresql://db:5432/employeeapp",
+    "SPRING_DATASOURCE_USERNAME": "postgres",
+    "SPRING_DATASOURCE_PASSWORD": "postgres"
+  },
+  "postCreateCommand": "cd src/EmployeeApp && ./gradlew dependencies 2>/dev/null || true",
+  "remoteUser": "vscode"
+}
