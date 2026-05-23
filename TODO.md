@@ -65,14 +65,14 @@
 
 ## Phase 5: ch02「詳細表示」→ `ch03-start` タグ
 
-- [ ] `docs/chapter02.md` 作成（基礎知識 + 練習問題 4〜6 問）
+- [x] `docs/chapter02.md` 作成（基礎知識 + 練習問題 4〜6 問）
   - 基礎：ルーティング（`/employees/3` の仕組み）・`@PathVariable`・`Model` で View がデータを受け取る方法
   - 問題例：詳細画面に項目を追加 / 存在しない ID にアクセスしたときの処理を追加 / 部署名を JOIN で表示 / 一覧に「詳細」リンクを追加
-- [ ] ch02 解答コードを実装（ch03 の起点を作る）
+- [x] ch02 解答コードを実装（ch03 の起点を作る）
   - detail に全カラム + 部署名（LEFT JOIN）を表示
   - `EmployeeController` に `createForm`（GET）アクション追加（空のフォームを返す）
   - `templates/employee/create.html` 作成（name と salary だけのフォーム骨格）
-- [ ] `ch03-start` タグ付け
+- [x] `ch03-start` タグ付け
 
 ---
 
