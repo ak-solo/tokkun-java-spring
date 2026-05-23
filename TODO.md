@@ -92,15 +92,15 @@
 
 ## Phase 7: ch04「編集」→ `ch05-start` タグ
 
-- [ ] `docs/chapter04.md` 作成（基礎知識 + 練習問題 4〜6 問）
+- [x] `docs/chapter04.md` 作成（基礎知識 + 練習問題 4〜6 問）
   - 基礎：Bean Validation（`@NotBlank`・`@Range` 等）・`@Valid` + `BindingResult`・Thymeleaf でのエラー表示（`th:errors`）
   - JdbcTemplate での UPDATE
   - 問題例：`@NotBlank` を追加して必須チェック / エラーメッセージを日本語化 / `@Range` で給与の範囲を制限 / UPDATE 文を実装
-- [ ] ch04 解答コードを実装（ch05 の起点を作る）
+- [x] ch04 解答コードを実装（ch05 の起点を作る）
   - `EmployeeController` に `edit`（POST）実装（バリデーション + UPDATE + リダイレクト）
   - `EmployeeController` に `deleteConfirm`（GET）アクション追加（削除確認画面を表示）
   - `templates/employee/delete.html` 作成（削除対象の情報と確認ボタンの骨格）
-- [ ] `ch05-start` タグ付け
+- [x] `ch05-start` タグ付け
 
 ---
 
