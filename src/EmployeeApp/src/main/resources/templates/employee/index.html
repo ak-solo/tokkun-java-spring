@@ -9,17 +9,31 @@
 <div layout:fragment="content">
     <h1>社員一覧</h1>
 
+    <p class="text-muted" th:text="${employees.size()} + ' 件'"></p>
+
     <table class="table">
         <thead>
             <tr>
                 <th>ID</th>
                 <th>氏名</th>
+                <th>部署 ID</th>
+                <th>給与</th>
+                <th>入社日</th>
+                <th>上司 ID</th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
             <tr th:each="employee : ${employees}">
                 <td th:text="${employee.id}"></td>
                 <td th:text="${employee.name}"></td>
+                <td th:text="${employee.deptId}"></td>
+                <td th:text="${employee.salary}"></td>
+                <td th:text="${employee.hireDate}"></td>
+                <td th:text="${employee.managerId}"></td>
+                <td>
+                    <a th:href="@{/employees/{id}(id=${employee.id})}">詳細</a>
+                </td>
             </tr>
         </tbody>
     </table>
