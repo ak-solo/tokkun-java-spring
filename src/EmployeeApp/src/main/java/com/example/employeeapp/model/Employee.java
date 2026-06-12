@@ -1,23 +1,12 @@
 package com.example.employeeapp.model;
 
 import java.time.LocalDate;
-import jakarta.validation.constraints.Max;
-import jakarta.validation.constraints.Min;
-import jakarta.validation.constraints.NotBlank;
-import org.springframework.format.annotation.DateTimeFormat;
 
 public class Employee {
     private int id;
-
-    @NotBlank(message = "氏名は入力必須です")
     private String name;
-
     private Integer deptId;
-
-    @Min(value = 1, message = "給与は 1 以上を入力してください")
-    @Max(value = 99999999, message = "給与は 99,999,999 以下を入力してください")
     private Integer salary;
-    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     private LocalDate hireDate;
     private Integer managerId;
     private String deptName;

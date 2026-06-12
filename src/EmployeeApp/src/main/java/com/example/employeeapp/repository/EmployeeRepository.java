@@ -2,15 +2,11 @@ package com.example.employeeapp.repository;
 
 import com.example.employeeapp.model.Employee;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
-import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
-import org.springframework.jdbc.support.GeneratedKeyHolder;
-import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 @Repository
 public class EmployeeRepository {
@@ -20,76 +16,10 @@ public class EmployeeRepository {
         this.jdbcTemplate = jdbcTemplate;
     }
 
-    public List<Employee> findAll(String keyword, Integer deptId, String sortBy, String sortDir) {
-        Set<String> sortableColumns = Set.of("name", "salary", "hire_date");
-        String column    = sortableColumns.contains(sortBy) ? sortBy : "hire_date";
-        String direction = "asc".equals(sortDir) ? "ASC" : "DESC";
-
-        StringBuilder sql = new StringBuilder(
-            "SELECT id, name, dept_id, salary, hire_date, manager_id FROM employees WHERE 1=1"
-        );
-        MapSqlParameterSource params = new MapSqlParameterSource();
-
-        if (keyword != null && !keyword.isBlank()) {
-            sql.append(" AND name LIKE :keyword");
-            params.addValue("keyword", "%" + keyword + "%");
-        }
-        if (deptId != null) {
-            sql.append(" AND dept_id = :deptId");
-            params.addValue("deptId", deptId);
-        }
-
-        sql.append(" ORDER BY ").append(column).append(" ").append(direction);
-
-        return jdbcTemplate.query(sql.toString(), params, new BeanPropertyRowMapper<>(Employee.class));
-    }
-
-    public int save(Employee employee) {
-        KeyHolder keyHolder = new GeneratedKeyHolder();
-        MapSqlParameterSource params = new MapSqlParameterSource()
-            .addValue("name",     employee.getName())
-            .addValue("deptId",   employee.getDeptId())
-            .addValue("salary",   employee.getSalary())
-            .addValue("hireDate", employee.getHireDate());
-        jdbcTemplate.update(
-            "INSERT INTO employees (name, dept_id, salary, hire_date)" +
-            " VALUES (:name, :deptId, :salary, :hireDate)",
-            params,
-            keyHolder,
-            new String[]{"id"}
-        );
-        return keyHolder.getKey().intValue();
-    }
-
-    public void update(Employee employee) {
-        MapSqlParameterSource params = new MapSqlParameterSource()
-            .addValue("name",     employee.getName())
-            .addValue("deptId",   employee.getDeptId())
-            .addValue("salary",   employee.getSalary())
-            .addValue("hireDate", employee.getHireDate())
-            .addValue("id",       employee.getId());
-        jdbcTemplate.update(
-            "UPDATE employees" +
-            " SET name = :name, dept_id = :deptId, salary = :salary, hire_date = :hireDate" +
-            " WHERE id = :id",
-            params
-        );
-    }
-
-    public void delete(int id) {
-        jdbcTemplate.update(
-            "DELETE FROM employees WHERE id = :id",
-            Map.of("id", id)
-        );
-    }
-
-    public Employee findById(int id) {
-        return jdbcTemplate.queryForObject(
-            "SELECT e.*, d.name AS dept_name" +
-            " FROM employees e" +
-            " LEFT JOIN departments d ON e.dept_id = d.id" +
-            " WHERE e.id = :id",
-            Map.of("id", id),
+    public List<Employee> findAll() {
+        return jdbcTemplate.query(
+            "SELECT id, name FROM employees ORDER BY id",
+            Map.of(),
             new BeanPropertyRowMapper<>(Employee.class)
         );
     }
