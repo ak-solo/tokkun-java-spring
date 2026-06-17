@@ -98,6 +98,40 @@ cd src/EmployeeApp
 
 ---
 
+## 共通：VS Code の GUI で起動・デバッグする
+
+ターミナルを使わずに、VS Code のボタンから起動・デバッグ実行することもできます。
+
+### 起動前の確認：Java の準備完了を待つ
+
+初めてコンテナを開いたとき、VS Code は Java プロジェクトを内部で解析・ビルドする処理を自動実行します。この処理が終わるまで、▶ ボタンを押してもエラーになります。
+
+- VS Code 右下のステータスバーに **「Java: Building workspace...」** と表示されている間は待ちます
+- 表示が消えたら準備完了です（1〜2 分かかることがあります）
+
+> エラー「Main class ... doesn't exist in the workspace」が出た場合も、これが原因です。
+> 待っても解消しない場合は、コマンドパレット（`F1`）から「**Java: Clean Java Language Server Workspace**」を実行してください。
+
+### 起動方法 1：Run and Debug パネル（▶ ボタン）
+
+1. 左サイドバーの「**Run and Debug**」アイコン（または `Ctrl+Shift+D` / `Cmd+Shift+D`）をクリック
+2. 上部のドロップダウンが「**Spring Boot**」になっていることを確認
+3. ▶ ボタン（または `F5`）をクリック
+
+通常起動（`F5`）でもブレークポイントが有効なデバッグ実行になります。
+
+> **ブレークポイントの使い方**
+>
+> コードの行番号の左をクリックすると赤い丸（ブレークポイント）が付きます。
+> デバッグ実行中にその行に差し掛かると処理が一時停止し、変数の中身などを確認できます。
+
+### 起動方法 2：ソースファイルの CodeLens から実行
+
+1. `src/EmployeeApp/src/main/java/com/example/employeeapp/EmployeeAppApplication.java` を開く
+2. `main` メソッドの上に表示される「**Run**」または「**Debug**」のリンクをクリック
+
+---
+
 ## 共通：ホットリロードを使う
 
 Spring Boot DevTools を使うと、ファイルを保存するたびにアプリが自動再起動します。  
