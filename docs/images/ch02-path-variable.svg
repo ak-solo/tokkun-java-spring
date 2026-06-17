@@ -1,0 +1,30 @@
+<svg width="490" height="225" viewBox="0 0 490 225" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="arr" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#333"/>
+    </marker>
+  </defs>
+
+  <!-- ブラウザ -->
+  <rect x="145" y="18" width="160" height="36" rx="18" fill="#dae8fc" stroke="#6c8ebf" stroke-width="1.5"/>
+  <text x="225" y="36" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="13" fill="#333">ブラウザ</text>
+
+  <!-- 矢印 + URLラベル -->
+  <line x1="225" y1="54" x2="225" y2="90" stroke="#333" stroke-width="1.5" marker-end="url(#arr)"/>
+  <text x="240" y="70" font-family="Arial, sans-serif" font-size="11" fill="#555">GET /employees/<tspan font-weight="bold" fill="#e07000">3</tspan></text>
+
+  <!-- Controller ボックス -->
+  <rect x="10" y="98" width="470" height="112" rx="4" fill="#d5e8d4" stroke="#82b366" stroke-width="1.5"/>
+
+  <!-- メソッドシグネチャ行 -->
+  <text x="245" y="118" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#333">@GetMapping(&quot;/{id}&quot;)</text>
+  <text x="245" y="135" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="10" fill="#555">public String detail(@PathVariable int id, Model model)</text>
+
+  <!-- 区切り線 -->
+  <line x1="28" y1="145" x2="462" y2="145" stroke="#82b366" stroke-width="1" stroke-dasharray="4,3"/>
+
+  <!-- ① ② ③ ステップ -->
+  <text x="30" y="163" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="11" fill="#333">① URL の {id} 部分（=<tspan font-weight="bold" fill="#e07000"> 3</tspan> ）が id 引数に入る</text>
+  <text x="30" y="182" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="11" fill="#333">② findById(3) を呼ぶ</text>
+  <text x="30" y="201" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="11" fill="#333">③ 結果を model に入れて detail.html を返す</text>
+</svg>

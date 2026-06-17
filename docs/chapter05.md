@@ -58,15 +58,7 @@ UPDATE と同じ `jdbcTemplate.update()` を使います。
 
 ### 削除の PRG パターン
 
-```
-ユーザーが「削除する」ボタンを押す（POST）
-        ↓
-サーバーが DELETE を実行
-        ↓
-302 リダイレクト → GET /employees（一覧）
-        ↓
-一覧画面が表示される
-```
+![削除の PRG パターン](images/ch05-delete-flow.svg)
 
 ページを更新（F5）しても DELETE は再実行されず、GET /employees が再実行されるだけです。
 

@@ -15,38 +15,7 @@
 
 ブラウザが `GET /employees` にアクセスしたとき、内部では次の流れが起きます。
 
-```
-ブラウザ
-  │  GET /employees
-  ▼
-┌──────────────────────────────────────────────────────────┐
-│  EmployeeController.index()                              │
-│                                                          │
-│  1. employeeRepository.findAll() を呼ぶ                  │
-│  2. 結果を model.addAttribute("employees", ...) で渡す   │
-│  3. "employee/index" テンプレートを返す                   │
-└──────────────────────────────────────────────────────────┘
-  │ findAll()
-  ▼
-┌──────────────────────────────────────────────────────────┐
-│  EmployeeRepository.findAll()                            │
-│                                                          │
-│  JdbcTemplate で SQL を実行 → List<Employee> を返す       │
-└──────────────────────────────────────────────────────────┘
-  │ SELECT ...
-  ▼
-[ PostgreSQL ]
-  │ 結果（複数行）
-  ▼
-┌──────────────────────────────────────────────────────────┐
-│  templates/employee/index.html                           │
-│                                                          │
-│  ${employees} を th:each でループして行を表示             │
-└──────────────────────────────────────────────────────────┘
-  │ HTML
-  ▼
-ブラウザ（社員一覧が表示される）
-```
+![Controller → Repository → View のデータの流れ](images/ch01-data-flow.svg)
 
 ### アノテーション
 
@@ -144,14 +113,7 @@ public List<Employee> findAll() {
 
 `BeanPropertyRowMapper` は、SELECT で取得した列名を Employee クラスのフィールドに自動でマッピングします。
 
-```
-SELECT の結果                Employee クラスのフィールド
-─────────────────            ──────────────────────────
-id        = 1       →        employee.id        = 1
-name      = 田中 太郎 →       employee.name      = "田中 太郎"
-salary    = 60000   →        employee.salary    = 60000
-hire_date = 2015-04-01 →     employee.hireDate  = 2015-04-01
-```
+![BeanPropertyRowMapper のマッピング](images/ch01-row-mapping.svg)
 
 > **ポイント**: SQL の列名 `hire_date`（スネークケース）は Java の `hireDate`（キャメルケース）に自動変換されます。
 
