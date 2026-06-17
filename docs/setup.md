@@ -102,6 +102,16 @@ cd src/EmployeeApp
 
 ターミナルを使わずに、VS Code のボタンから起動・デバッグ実行することもできます。
 
+### 起動前の確認：Java の準備完了を待つ
+
+初めてコンテナを開いたとき、VS Code は Java プロジェクトを内部で解析・ビルドする処理を自動実行します。この処理が終わるまで、▶ ボタンを押してもエラーになります。
+
+- VS Code 右下のステータスバーに **「Java: Building workspace...」** と表示されている間は待ちます
+- 表示が消えたら準備完了です（1〜2 分かかることがあります）
+
+> エラー「Main class ... doesn't exist in the workspace」が出た場合も、これが原因です。
+> 待っても解消しない場合は、コマンドパレット（`F1`）から「**Java: Clean Java Language Server Workspace**」を実行してください。
+
 ### 起動方法 1：Run and Debug パネル（▶ ボタン）
 
 1. 左サイドバーの「**Run and Debug**」アイコン（または `Ctrl+Shift+D` / `Cmd+Shift+D`）をクリック
