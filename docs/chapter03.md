@@ -64,17 +64,7 @@ public String create(@ModelAttribute Employee employee) {
 POST の後にそのままページを表示すると、ブラウザの更新ボタンで同じ登録が繰り返されてしまいます。  
 これを防ぐのが **PRG パターン** です。
 
-```
-① ユーザーがフォームを送信（POST /employees）
-        ↓
-② サーバーが INSERT を実行
-        ↓
-③ サーバーが「302 リダイレクト」を返す（GET /employees/3 へ移動して）
-        ↓
-④ ブラウザが GET /employees/3 にアクセス（詳細画面を表示）
-        ↓
-⑤ ブラウザを更新しても GET /employees/3 が再実行されるだけ（安全）
-```
+![PRG パターンの流れ](images/ch03-prg-pattern.svg)
 
 Spring MVC でリダイレクトするには `"redirect:/path"` を返します。
 

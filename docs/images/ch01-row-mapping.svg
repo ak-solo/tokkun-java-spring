@@ -1,0 +1,66 @@
+<svg width="500" height="248" viewBox="0 0 500 248" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="arr" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#666"/>
+    </marker>
+  </defs>
+
+  <!-- ===== 左テーブル：SQL の結果 ===== -->
+  <!-- 外枠 -->
+  <rect x="10" y="20" width="190" height="208" rx="4" fill="#fff2cc" stroke="#d6b656" stroke-width="1.5"/>
+  <!-- ヘッダー背景 -->
+  <rect x="10" y="20" width="190" height="36" rx="4" fill="#ffd966" stroke="#d6b656" stroke-width="1.5"/>
+  <rect x="10" y="44" width="190" height="12" fill="#ffd966"/>
+  <!-- ヘッダーテキスト -->
+  <text x="105" y="38" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#333">SELECT の結果</text>
+
+  <!-- 行区切り（4行分：header下・row1-2・row2-3・row3-4） -->
+  <line x1="10" y1="56"  x2="200" y2="56"  stroke="#d6b656" stroke-width="1"/>
+  <line x1="10" y1="99"  x2="200" y2="99"  stroke="#d6b656" stroke-width="1"/>
+  <line x1="10" y1="142" x2="200" y2="142" stroke="#d6b656" stroke-width="1"/>
+  <line x1="10" y1="185" x2="200" y2="185" stroke="#d6b656" stroke-width="1"/>
+
+  <!-- 行4のハイライト（hire_date） -->
+  <rect x="11" y="186" width="188" height="41" fill="#ffe6cc"/>
+
+  <!-- 行テキスト（左列: 列名） -->
+  <text x="105" y="77"  text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="12" fill="#333">id</text>
+  <text x="105" y="120" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="12" fill="#333">name</text>
+  <text x="105" y="163" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="12" fill="#333">salary</text>
+  <!-- hire_date 行（スネークケース強調） -->
+  <text x="105" y="200" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#c0392b">hire_date</text>
+  <text x="105" y="218" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="10" fill="#c0392b">（スネークケース）</text>
+
+  <!-- ===== 矢印 ===== -->
+  <line x1="200" y1="77"  x2="296" y2="77"  stroke="#666" stroke-width="1.5" marker-end="url(#arr)"/>
+  <line x1="200" y1="120" x2="296" y2="120" stroke="#666" stroke-width="1.5" marker-end="url(#arr)"/>
+  <line x1="200" y1="163" x2="296" y2="163" stroke="#666" stroke-width="1.5" marker-end="url(#arr)"/>
+  <!-- hire_date → hireDate 矢印（オレンジ） -->
+  <line x1="200" y1="206" x2="296" y2="206" stroke="#e07000" stroke-width="2" marker-end="url(#arr)"/>
+
+  <!-- ===== 右テーブル：Employee クラス ===== -->
+  <!-- 外枠 -->
+  <rect x="300" y="20" width="190" height="208" rx="4" fill="#dae8fc" stroke="#6c8ebf" stroke-width="1.5"/>
+  <!-- ヘッダー背景 -->
+  <rect x="300" y="20" width="190" height="36" rx="4" fill="#a9c4e8" stroke="#6c8ebf" stroke-width="1.5"/>
+  <rect x="300" y="44" width="190" height="12" fill="#a9c4e8"/>
+  <!-- ヘッダーテキスト -->
+  <text x="395" y="38" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#333">Employee クラス</text>
+
+  <!-- 行区切り（4行分） -->
+  <line x1="300" y1="56"  x2="490" y2="56"  stroke="#6c8ebf" stroke-width="1"/>
+  <line x1="300" y1="99"  x2="490" y2="99"  stroke="#6c8ebf" stroke-width="1"/>
+  <line x1="300" y1="142" x2="490" y2="142" stroke="#6c8ebf" stroke-width="1"/>
+  <line x1="300" y1="185" x2="490" y2="185" stroke="#6c8ebf" stroke-width="1"/>
+
+  <!-- 行4のハイライト（hireDate） -->
+  <rect x="301" y="186" width="188" height="41" fill="#ffe6cc"/>
+
+  <!-- 行テキスト（右列: フィールド名） -->
+  <text x="395" y="77"  text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="12" fill="#333">employee.id</text>
+  <text x="395" y="120" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="12" fill="#333">employee.name</text>
+  <text x="395" y="163" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="12" fill="#333">employee.salary</text>
+  <!-- hireDate 行（キャメルケース強調） -->
+  <text x="395" y="200" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#1a6aa8">employee.hireDate</text>
+  <text x="395" y="218" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="10" fill="#1a6aa8">（キャメルケース）</text>
+</svg>

@@ -17,19 +17,7 @@
 ch01 では `GET /employees` を一覧表示に使いました。  
 詳細表示は `GET /employees/3`（ID が 3 の社員）のように、URL に ID を含めます。
 
-```
-ブラウザ
-  │  GET /employees/3
-  ▼
-┌──────────────────────────────────────────────────────────┐
-│  @GetMapping("/{id}")                                    │
-│  public String detail(@PathVariable int id, Model model) │
-│                                                          │
-│  ① URL の {id} 部分（= 3）が id 引数に入る              │
-│  ② findById(3) を呼ぶ                                    │
-│  ③ 結果を model に入れて detail.html を返す              │
-└──────────────────────────────────────────────────────────┘
-```
+![PathVariable の URL ルーティング](images/ch02-path-variable.svg)
 
 ### @PathVariable ─ URL の値を引数に受け取る
 
@@ -79,11 +67,9 @@ WHERE e.id = :id
 
 Java 側では、`AS dept_name` の別名が `Employee.deptName` フィールドに自動でマッピングされます。
 
-```
-SELECT の結果              Employee クラスのフィールド
-─────────────────          ──────────────────────────
-dept_name = 営業部   →     employee.deptName = "営業部"
-```
+| SQL の結果 | Employee クラスのフィールド |
+|---|---|
+| `dept_name = 営業部` | `employee.deptName = "営業部"` |
 
 `Employee` クラスにはすでに `deptName` フィールドが定義済みです。
 

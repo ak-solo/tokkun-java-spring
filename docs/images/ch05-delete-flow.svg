@@ -1,0 +1,34 @@
+<svg width="440" height="295" viewBox="0 0 440 295" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="arr" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#333"/>
+    </marker>
+  </defs>
+
+  <!-- ===== ステップ 1：削除ボタンを押す（POST） ===== -->
+  <rect x="30" y="16" width="380" height="50" rx="6" fill="#dae8fc" stroke="#6c8ebf" stroke-width="1.5"/>
+  <text x="220" y="34" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#333">ユーザーが「削除する」ボタンを押す</text>
+  <text x="220" y="52" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="10" fill="#555">POST /employees/3/delete</text>
+
+  <!-- 矢印 -->
+  <line x1="220" y1="66" x2="220" y2="90" stroke="#333" stroke-width="1.5" marker-end="url(#arr)"/>
+
+  <!-- ===== ステップ 2：DELETE 実行 ===== -->
+  <rect x="30" y="98" width="380" height="44" rx="6" fill="#d5e8d4" stroke="#82b366" stroke-width="1.5"/>
+  <text x="220" y="120" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#333">サーバーが DELETE を実行</text>
+
+  <!-- 矢印 -->
+  <line x1="220" y1="142" x2="220" y2="166" stroke="#333" stroke-width="1.5" marker-end="url(#arr)"/>
+
+  <!-- ===== ステップ 3：302 リダイレクト ===== -->
+  <rect x="30" y="174" width="380" height="44" rx="6" fill="#fff2cc" stroke="#d6b656" stroke-width="1.5"/>
+  <text x="220" y="192" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#e07000">302 リダイレクト</text>
+  <text x="220" y="210" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="10" fill="#555">→ GET /employees（一覧）へ転送</text>
+
+  <!-- 矢印 -->
+  <line x1="220" y1="218" x2="220" y2="242" stroke="#333" stroke-width="1.5" marker-end="url(#arr)"/>
+
+  <!-- ===== ステップ 4：一覧表示 ===== -->
+  <rect x="30" y="250" width="380" height="34" rx="6" fill="#dae8fc" stroke="#6c8ebf" stroke-width="1.5"/>
+  <text x="220" y="267" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="12" fill="#333">一覧画面が表示される（GET /employees）</text>
+</svg>

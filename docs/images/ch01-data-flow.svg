@@ -1,0 +1,61 @@
+<svg width="480" height="580" viewBox="0 0 480 580" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="arr" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#333"/>
+    </marker>
+    <marker id="arr-d" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#999"/>
+    </marker>
+  </defs>
+
+  <!-- ブラウザ（上） -->
+  <rect x="90" y="20" width="220" height="40" rx="20" fill="#dae8fc" stroke="#6c8ebf" stroke-width="1.5"/>
+  <text x="200" y="40" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="14" fill="#333">ブラウザ</text>
+
+  <!-- ブラウザ → Controller -->
+  <line x1="200" y1="60" x2="200" y2="92" stroke="#333" stroke-width="1.5" marker-end="url(#arr)"/>
+  <text x="214" y="79" font-family="Arial, sans-serif" font-size="10" fill="#555">GET /employees</text>
+
+  <!-- Controller -->
+  <rect x="40" y="100" width="320" height="88" rx="4" fill="#d5e8d4" stroke="#82b366" stroke-width="1.5"/>
+  <text x="200" y="120" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#333">EmployeeController.index()</text>
+  <text x="200" y="141" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="10" fill="#555">1. employeeRepository.findAll() を呼ぶ</text>
+  <text x="200" y="158" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="10" fill="#555">2. 結果を model にセット</text>
+  <text x="200" y="175" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="10" fill="#555">3. &quot;employee/index&quot; テンプレートを返す</text>
+
+  <!-- Controller → Repository -->
+  <line x1="200" y1="188" x2="200" y2="228" stroke="#333" stroke-width="1.5" marker-end="url(#arr)"/>
+  <text x="214" y="211" font-family="Arial, sans-serif" font-size="10" fill="#555">findAll()</text>
+
+  <!-- Repository -->
+  <rect x="40" y="236" width="320" height="68" rx="4" fill="#fff2cc" stroke="#d6b656" stroke-width="1.5"/>
+  <text x="200" y="257" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#333">EmployeeRepository.findAll()</text>
+  <text x="200" y="278" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="10" fill="#555">JdbcTemplate で SQL を実行</text>
+  <text x="200" y="295" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="10" fill="#555">→ List&lt;Employee&gt; を返す</text>
+
+  <!-- Repository → DB -->
+  <line x1="200" y1="304" x2="200" y2="342" stroke="#333" stroke-width="1.5" marker-end="url(#arr)"/>
+  <text x="214" y="326" font-family="Arial, sans-serif" font-size="10" fill="#555">SELECT ...</text>
+
+  <!-- DB -->
+  <rect x="40" y="350" width="320" height="50" rx="4" fill="#e1d5e7" stroke="#9673a6" stroke-width="1.5"/>
+  <text x="200" y="370" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#333">データベース</text>
+  <text x="200" y="388" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="10" fill="#555">（PostgreSQL）</text>
+
+  <!-- DB → View（破線） -->
+  <line x1="200" y1="400" x2="200" y2="436" stroke="#999" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#arr-d)"/>
+  <text x="214" y="421" font-family="Arial, sans-serif" font-size="10" fill="#777">結果（複数行）</text>
+
+  <!-- View -->
+  <rect x="40" y="444" width="320" height="56" rx="4" fill="#f8cecc" stroke="#b85450" stroke-width="1.5"/>
+  <text x="200" y="463" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#333">templates/employee/index.html</text>
+  <text x="200" y="482" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="10" fill="#555">${employees} を th:each でループして表示</text>
+
+  <!-- View → ブラウザ -->
+  <line x1="200" y1="500" x2="200" y2="519" stroke="#333" stroke-width="1.5" marker-end="url(#arr)"/>
+  <text x="214" y="513" font-family="Arial, sans-serif" font-size="10" fill="#555">HTML</text>
+
+  <!-- ブラウザ（下） -->
+  <rect x="90" y="527" width="220" height="40" rx="20" fill="#dae8fc" stroke="#6c8ebf" stroke-width="1.5"/>
+  <text x="200" y="547" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="12" fill="#333">ブラウザ（社員一覧が表示される）</text>
+</svg>

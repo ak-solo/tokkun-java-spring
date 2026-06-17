@@ -1,0 +1,49 @@
+<svg width="520" height="395" viewBox="0 0 520 395" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="arr" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#333"/>
+    </marker>
+    <marker id="arr-d" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#e07000"/>
+    </marker>
+  </defs>
+
+  <!-- ===== アクター ===== -->
+  <!-- ブラウザ -->
+  <rect x="20" y="18" width="150" height="50" rx="6" fill="#dae8fc" stroke="#6c8ebf" stroke-width="1.5"/>
+  <text x="95" y="37" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#333">ブラウザ</text>
+  <text x="95" y="55" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="10" fill="#555">（クライアント）</text>
+
+  <!-- サーバー -->
+  <rect x="350" y="18" width="150" height="50" rx="6" fill="#d5e8d4" stroke="#82b366" stroke-width="1.5"/>
+  <text x="425" y="37" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#333">サーバー</text>
+  <text x="425" y="55" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="10" fill="#555">（Spring Boot）</text>
+
+  <!-- ===== ライフライン ===== -->
+  <line x1="95" y1="68" x2="95" y2="388" stroke="#bbb" stroke-width="1" stroke-dasharray="4,4"/>
+  <line x1="425" y1="68" x2="425" y2="388" stroke="#bbb" stroke-width="1" stroke-dasharray="4,4"/>
+
+  <!-- ===== ① POST /employees ===== -->
+  <line x1="95" y1="108" x2="417" y2="108" stroke="#333" stroke-width="2" marker-end="url(#arr)"/>
+  <text x="255" y="96" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#333">① POST /employees</text>
+  <text x="255" y="124" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#555">フォームを送信（登録ボタンを押す）</text>
+
+  <!-- ===== ② INSERT 実行（サーバー内部） ===== -->
+  <rect x="340" y="142" width="170" height="34" rx="3" fill="#d5e8d4" stroke="#82b366" stroke-width="1"/>
+  <text x="425" y="159" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="11" fill="#333">② INSERT を実行</text>
+
+  <!-- ===== ③ 302 リダイレクト ===== -->
+  <line x1="425" y1="210" x2="103" y2="210" stroke="#e07000" stroke-width="2" marker-end="url(#arr-d)"/>
+  <text x="255" y="198" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#e07000">③ 302 リダイレクト</text>
+  <text x="255" y="226" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#777">Location: GET /employees/3</text>
+
+  <!-- ===== ④ GET /employees/3 ===== -->
+  <line x1="95" y1="268" x2="417" y2="268" stroke="#333" stroke-width="2" marker-end="url(#arr)"/>
+  <text x="255" y="256" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#333">④ GET /employees/3</text>
+  <text x="255" y="284" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#555">ブラウザが自動でリクエスト</text>
+
+  <!-- ===== ⑤ 更新しても安全（ブラウザ側ノート） ===== -->
+  <rect x="20" y="318" width="150" height="42" rx="4" fill="#fff2cc" stroke="#d6b656" stroke-width="1.2"/>
+  <text x="95" y="335" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="11" fill="#333">⑤ 更新しても安全</text>
+  <text x="95" y="352" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="10" fill="#555">GET が再実行されるだけ</text>
+</svg>
