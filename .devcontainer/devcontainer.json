@@ -35,6 +35,6 @@
     "SPRING_DATASOURCE_USERNAME": "postgres",
     "SPRING_DATASOURCE_PASSWORD": "postgres"
   },
-  "postCreateCommand": "cd src/EmployeeApp && ./gradlew dependencies 2>/dev/null || true",
+  "postCreateCommand": "cd src/EmployeeApp && ./gradlew classes || true",
   "remoteUser": "vscode"
 }
