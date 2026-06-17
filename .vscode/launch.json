@@ -5,8 +5,7 @@
       "type": "java",
       "name": "Spring Boot",
       "request": "launch",
-      "mainClass": "com.example.employeeapp.EmployeeAppApplication",
-      "projectName": "employeeapp"
+      "mainClass": "com.example.employeeapp.EmployeeAppApplication"
     }
   ]
 }
