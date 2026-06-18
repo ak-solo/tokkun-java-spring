@@ -28,3 +28,7 @@ logs/
 # Spring Boot
 *.pid
 HELP.md
+
+# Claude Code（環境固有の設定は除外、スキルは管理対象）
+.claude/settings.json
+.claude/settings.local.json
